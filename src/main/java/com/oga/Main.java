@@ -6,31 +6,30 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        BookRepository bookRepository = new BookRepository();
-        List<Book> books;
-        Library library = new LibraryManagementSystem(bookRepository) ;
-
-
-        ObjectMapper mapper = new ObjectMapper();
-        File booksJson = new File("src/test/resources/books.json");
-        books = mapper.readValue(booksJson, new TypeReference<List<Book>>() {
-        });
-        bookRepository.addBooks(books);
-
-        // tsalf kteb mawjoud
-            Member member = new StudentMember("Y2037978P", "Amine", "Riahi", 20.0f, Profil.STUDENT);
-            Book book = library.borrowBook(46578964513L, member, LocalDate.now());
-        System.out.println("book found : " +book);
-        System.out.println("**********************************************************");
-
-
+//        BookRepository bookRepository = new BookRepository();
+//        List<Book> books;
+//        Library library = new LibraryManagementSystem(bookRepository) ;
+//
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        File booksJson = new File("src/test/resources/books.json");
+//        books = mapper.readValue(booksJson, new TypeReference<List<Book>>() {
+//        });
+//        bookRepository.addBooks(books);
+//
+//        // tsalf kteb mawjoud
+//            Member member = new StudentMember("Y2037978P", "Amine", "Riahi", 20.0f, Profil.STUDENT);
+//            Book book = library.borrowBook(46578964513L, member, LocalDate.now());
+//        System.out.println("book found : " +book);
+//        System.out.println("**********************************************************");
+//
+//
 
 //        // n3awdou netsalfou nafs lkteb marra okhra men membre wehed ekher
 //        Member member2 = new StudentMember("TR56553D", "Yassine", "Abdellaoui", 30.0f, Profil.RESIDENT);

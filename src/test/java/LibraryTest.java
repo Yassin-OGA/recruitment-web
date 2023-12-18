@@ -20,14 +20,14 @@ import org.junit.jupiter.api.Test;
 
 public class LibraryTest {
 
-    private BookRepository bookRepository = new BookRepository();
-    private Library library = new LibraryManagementSystem(bookRepository) ;
+    private final BookRepository bookRepository = new BookRepository();
+    private final Library library = new LibraryManagementSystem(bookRepository) ;
     private static List<Book> books = new ArrayList<>();
     public static final String STUDENTID = UUID.randomUUID().toString();
     public static final String RESEDENTID = UUID.randomUUID().toString();
 
     @BeforeEach
-    void setup() throws JsonParseException, JsonMappingException, IOException {
+    void setup() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         File booksJson = new File("src/test/resources/books.json");
         books = mapper.readValue(booksJson, new TypeReference<List<Book>>() {
@@ -49,6 +49,7 @@ public class LibraryTest {
         Member member2 = new ResidentMember(RESEDENTID, "Yassine", "Abdellaoui", 30.0f, Profil.RESIDENT);
         Book bookAvailable = library.borrowBook(46578964513L, member1, LocalDate.now());
         Book bookNotAvailable = library.borrowBook(46578964513L, member2, LocalDate.now());
+        Assertions.assertNotNull(bookAvailable);
         Assertions.assertNull(bookNotAvailable);
     }
 

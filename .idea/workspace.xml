@@ -4,42 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07ef68c2-dde1-4e04-86f9-a8777d6a44f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/HasLateBooksException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/ISBN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/Library.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/LibraryManagementSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/NoEnoughFundInTheWallet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/Profil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/ResidentMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oga/StudentMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LibraryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/LibraryApp/Book/Book.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/LibraryApp/Book/BookRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/LibraryApp/Book/Isbn.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/LibraryApp/Exception/AlreadyExistBookException.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/LibraryApp/Exception/HasLateBooksException.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/LibraryApp/LibraryApp.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/LibraryApp/library/ILibrary.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/LibraryApp/libraryapp.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/LibraryApp/member/Member.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/TestsLibraryApp/TestsLibraryApp.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Csharp/TestsLibraryApp/UnitTestLibraryApp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proxym/libraryapp/book/Book.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proxym/libraryapp/book/BookRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proxym/libraryapp/book/ISBN.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proxym/libraryapp/library/HasLateBooksException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proxym/libraryapp/library/Library.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proxym/libraryapp/member/Member.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/proxym/libraryapp/library/LibraryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/books.json" afterDir="false" />
+    <list default="true" id="07ef68c2-dde1-4e04-86f9-a8777d6a44f8" name="Changes" comment="test implementation">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oga/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LibraryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +36,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/yassine/IdeaProjects/recruitment-web-app",
@@ -116,11 +85,24 @@
       <option name="presentableId" value="Default" />
       <updated>1702645327898</updated>
       <workItem from="1702645330548" duration="1034000" />
-      <workItem from="1702918469450" duration="730000" />
+      <workItem from="1702918469450" duration="871000" />
     </task>
+    <task id="LOCAL-00001" summary="test implementation">
+      <option name="closed" value="true" />
+      <created>1702919226757</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702919226757</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="test implementation" />
   </component>
 </project>
