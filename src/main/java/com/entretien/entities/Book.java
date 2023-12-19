@@ -1,4 +1,4 @@
-package com.oga;
+package com.entretien.entities;
 
 import java.util.Objects;
 

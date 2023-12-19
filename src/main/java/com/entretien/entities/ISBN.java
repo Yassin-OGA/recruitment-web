@@ -1,4 +1,4 @@
-package com.oga;
+package com.entretien.entities;
 /**
  * La classe ISBN représente un numéro ISBN (International Standard Book Number) associé à un livre.
  * Elle stocke le code ISBN sous forme de long.

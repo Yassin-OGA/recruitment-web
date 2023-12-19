@@ -1,9 +1,12 @@
 
-import com.fasterxml.jackson.core.JsonParseException;
+import com.entretien.entities.*;
+import com.entretien.entities.abstracts.Member;
+import com.entretien.entities.enums.Profil;
+import com.entretien.repositories.impl.BookRepository;
+import com.entretien.services.Library;
+import com.entretien.services.impl.LibraryManagementSystem;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.oga.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.entretien.exceptions.HasLateBooksException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,10 +25,10 @@ import org.junit.jupiter.api.Test;
 public class LibraryTest {
 
     private final BookRepository bookRepository = new BookRepository();
-    private final Library library = new LibraryManagementSystem(bookRepository) ;
+    private final Library library = new LibraryManagementSystem(bookRepository);
     private static List<Book> books = new ArrayList<>();
-    public static final String STUDENTID = UUID.randomUUID().toString();
-    public static final String RESEDENTID = UUID.randomUUID().toString();
+    public static final String STUDENT_ID = UUID.randomUUID().toString();
+    public static final String RESEDENT_ID = UUID.randomUUID().toString();
 
     @BeforeEach
     void setup() throws IOException {
@@ -33,66 +37,95 @@ public class LibraryTest {
         books = mapper.readValue(booksJson, new TypeReference<List<Book>>() {
         });
         bookRepository.addBooks(books);
-
     }
 
     @Test
-    void member_can_borrow_a_book_if_book_is_available(){
-        Member member = new StudentMember(STUDENTID, "Amine", "Riahi", 20.0f, Profil.STUDENT);
+    void whenMemberBorrowsAvailableBook_thenBookIsBorrowed() {
+        // Given
+        Member member = new StudentMember(STUDENT_ID, "Jeff", "Michel", 20.0f, Profil.STUDENT);
+
+        // When
         Book book = library.borrowBook(46578964513L, member, LocalDate.now());
+
+        // Then
         Assertions.assertNotNull(book);
     }
 
     @Test
-    void borrowed_book_is_no_longer_available(){
-        Member member1 = new StudentMember(STUDENTID, "Amine", "Riahi", 20.0f, Profil.STUDENT);
-        Member member2 = new ResidentMember(RESEDENTID, "Yassine", "Abdellaoui", 30.0f, Profil.RESIDENT);
+    void whenBookIsBorrowed_thenItIsNoLongerAvailable() {
+        // Given
+        Member member1 = new StudentMember(STUDENT_ID, "Jeff", "Jeff", 20.0f, Profil.STUDENT);
+        Member member2 = new ResidentMember(RESEDENT_ID, "ALI", "ABDALLAH", 30.0f, Profil.RESIDENT);
+
+        // When
         Book bookAvailable = library.borrowBook(46578964513L, member1, LocalDate.now());
-        Book bookNotAvailable = library.borrowBook(46578964513L, member2, LocalDate.now());
+
+        // Then
         Assertions.assertNotNull(bookAvailable);
-        Assertions.assertNull(bookNotAvailable);
+        Assertions.assertThrows(HasLateBooksException.class, () -> library.borrowBook(46578964513L, member2, LocalDate.now()));
     }
 
     @Test
-    void residents_are_taxed_10cents_for_each_day_they_keep_a_book(){
-        Member member = new ResidentMember(STUDENTID, "Amine", "Riahi", 20.0f, Profil.RESIDENT);
+    void whenResidentsReturnBook_thenTheyAreTaxedForLateReturn() {
+        // Given
+        Member member = new ResidentMember(STUDENT_ID, "Jeff", "Michel", 20.0f, Profil.RESIDENT);
         LocalDate dateBorrowed = LocalDate.now().minus(10, ChronoUnit.DAYS);
+
+        // When
         Book book = library.borrowBook(46578964513L, member, dateBorrowed);
         library.returnBook(book, member);
+
+        // Then
         Assertions.assertEquals(19f, member.getWallet());
     }
 
     @Test
-    void students_pay_10_cents_the_first_30days(){
-        Member member = new StudentMember(STUDENTID, "Amine", "Riahi", 20.0f, Profil.STUDENT);
+    void whenStudentsReturnBookInFirst30Days_thenTheyPay10Cents() {
+        // Given
+        Member member = new StudentMember(STUDENT_ID, "Jeff", "Michel", 20.0f, Profil.STUDENT);
         LocalDate dateBorrowed = LocalDate.now().minus(30, ChronoUnit.DAYS);
+
+        // When
         Book book = library.borrowBook(46578964513L, member, dateBorrowed);
         library.returnBook(book, member);
+
+        // Then
         Assertions.assertEquals(17f, member.getWallet());
     }
 
     @Test
-    void students_in_1st_year_are_not_taxed_for_the_first_15days(){
-        Member member = new StudentMember(STUDENTID, "Amine", "Riahi", 20.0f, Profil.STUDENT_1ST_YEAR);
+    void whenFirstYearStudentsReturnBookInFirst15Days_thenTheyAreNotTaxed() {
+        // Given
+        Member member = new StudentMember(STUDENT_ID, "Jeff", "Michel", 20.0f, Profil.STUDENT_1ST_YEAR);
         LocalDate dateBorrowed = LocalDate.now().minus(27, ChronoUnit.DAYS);
+
+        // When
         Book book = library.borrowBook(46578964513L, member, dateBorrowed);
         library.returnBook(book, member);
+
+        // Then
         Assertions.assertEquals(18.8f, member.getWallet());
     }
 
     @Test
-    void residents_pay_20cents_for_each_day_they_keep_a_book_after_the_initial_60days(){
-        Member member = new ResidentMember(RESEDENTID, "Amine", "Riahi", 20.0f, Profil.RESIDENT);
+    void whenResidentsKeepBookAfter60Days_thenTheyAreTaxed20Cents() {
+        // Given
+        Member member = new ResidentMember(RESEDENT_ID, "Jeff", "Michel", 20.0f, Profil.RESIDENT);
         member.payBook(65);
+
+        // Then
         Assertions.assertEquals(13f, member.getWallet());
     }
 
     @Test
-    void members_cannot_borrow_book_if_they_have_late_books(){
-        Member member = new ResidentMember(RESEDENTID, "Amine", "Riahi", 20.0f, Profil.RESIDENT);
+    void whenMemberHasLateBooks_thenCannotBorrowNewBook() {
+        // Given
+        Member member = new ResidentMember(RESEDENT_ID, "Jeff", "Michel", 20.0f, Profil.RESIDENT);
         LocalDate dateBorrowed = LocalDate.now().minus(31, ChronoUnit.DAYS);
         Book book = library.borrowBook(46578964513L, member, dateBorrowed);
-        Assertions.assertThrows(HasLateBooksException.class, ()-> library.borrowBook(3326456467846L, member, LocalDate.now()));
+
+        // Then
+        Assertions.assertThrows(HasLateBooksException.class, () -> library.borrowBook(46578964513L, member, LocalDate.now()));
     }
 
 }

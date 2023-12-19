@@ -1,4 +1,8 @@
-package com.oga;
+package com.entretien.services;
+
+import com.entretien.entities.Book;
+import com.entretien.entities.abstracts.Member;
+import com.entretien.exceptions.HasLateBooksException;
 
 import java.time.LocalDate;
 

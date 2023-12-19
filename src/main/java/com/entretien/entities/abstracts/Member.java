@@ -1,4 +1,6 @@
-package com.oga;
+package com.entretien.entities.abstracts;
+
+import com.entretien.entities.enums.Profil;
 
 import java.util.Objects;
 

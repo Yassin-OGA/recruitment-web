@@ -1,4 +1,4 @@
-package com.oga;
+package com.entretien.exceptions;
 
 /**
  * La classe HasLateBooksException est une exception qui est levée lorsqu'un membre tente

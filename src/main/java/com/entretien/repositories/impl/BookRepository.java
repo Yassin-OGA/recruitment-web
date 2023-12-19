@@ -1,5 +1,11 @@
-package com.oga;
+package com.entretien.repositories.impl;
 
+
+import com.entretien.entities.Book;
+import com.entretien.entities.ISBN;
+import com.entretien.entities.abstracts.Member;
+import com.entretien.exceptions.HasLateBooksException;
+import com.entretien.repositories.IBookRepository;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -13,7 +19,7 @@ import java.util.stream.Collectors;
  * trouver des emprunteurs, enregistrer les détails d'emprunt, enregistrer les emprunteurs, récupérer la date d'emprunt,
  * retourner un livre, et obtenir une carte des membres avec les livres qu'ils ont empruntés.
  */
-public class BookRepository {
+public class BookRepository implements IBookRepository {
     /** Les livres disponibles avec leur ISBN associé. */
     private Map<ISBN, Book> availableBooks = new HashMap<>();
 
@@ -40,7 +46,15 @@ public class BookRepository {
      * @return Le livre correspondant au code ISBN, ou null s'il n'est pas trouvé.
      */
     public Book findBook(long isbnCode) {
-        return availableBooks.get(new ISBN(isbnCode));
+        Book book = availableBooks.get(new ISBN(isbnCode));
+        if (book == null)
+            throw new HasLateBooksException();
+        else
+        return book;
+    }
+
+    public Map<ISBN,Book> getAllBooks() {
+       return availableBooks;
     }
 
     /**
@@ -91,9 +105,12 @@ public class BookRepository {
      * @param book Le livre à retourner.
      */
     public void returnBook(Book book) {
-        borrowedBooks.remove(book);
-        availableBooks.put(book.getIsbn(), book);
-        borrower.remove(book);
+        if (book != null) {
+            borrowedBooks.remove(book);
+            availableBooks.put(book.getIsbn(), book);
+            borrower.remove(book);
+        }else
+            throw new RuntimeException("Book is null");
     }
 
     /**

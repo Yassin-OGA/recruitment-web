@@ -1,4 +1,4 @@
-package com.oga;
+package com.entretien.entities.enums;
 
 /**
  * L'énumération Profil représente les différents profils de membres de la bibliothèque,

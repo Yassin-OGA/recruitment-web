@@ -1,12 +1,6 @@
-package com.oga;
+package com.entretien;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.List;
 
 public class Main {
 
@@ -18,7 +12,7 @@ public class Main {
 //
 //
 //        ObjectMapper mapper = new ObjectMapper();
-//        File booksJson = new File("src/test/resources/books.json");
+//        File booksJson = new File("src/entretien/resources/books.json");
 //        books = mapper.readValue(booksJson, new TypeReference<List<Book>>() {
 //        });
 //        bookRepository.addBooks(books);

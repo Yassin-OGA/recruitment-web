@@ -1,5 +1,9 @@
-package com.oga;
+package com.entretien.entities;
 
+
+import com.entretien.entities.abstracts.Member;
+import com.entretien.entities.enums.Profil;
+import com.entretien.exceptions.NoEnoughFundInTheWallet;
 
 /**
  * La classe ResidentMember est une sous-classe de Member qui représente un membre résident de la bibliothèque.

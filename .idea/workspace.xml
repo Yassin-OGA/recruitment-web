@@ -4,14 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07ef68c2-dde1-4e04-86f9-a8777d6a44f8" name="Changes" comment="test implementation">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oga/Main.java" afterDir="false" />
+    <list default="true" id="07ef68c2-dde1-4e04-86f9-a8777d6a44f8" name="Changes" comment="some sonar changes">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/entretien/repositories/IBookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/repositories/impl/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/HasLateBooksException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/exceptions/HasLateBooksException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/ISBN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/ISBN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/services/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/LibraryManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/abstracts/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/NoEnoughFundInTheWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/exceptions/NoEnoughFundInTheWallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Profil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/enums/Profil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/ResidentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/ResidentMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/StudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/StudentMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LibraryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -34,6 +58,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.LibraryTest.executor": "Run",
+    "JUnit.LibraryTest.member_can_borrow_a_book_if_book_is_available.executor": "Run",
+    "JUnit.LibraryTest.residents_are_taxed_10cents_for_each_day_they_keep_a_book.executor": "Debug",
+    "JUnit.LibraryTest.whenBookIsBorrowed_thenItIsNoLongerAvailable.executor": "Run",
+    "JUnit.LibraryTestUsingMock.executor": "Run",
+    "JUnit.LibraryTestUsingMock.member_can_borrow_a_book_if_book_is_available.executor": "Run",
+    "JUnit.LibraryTestUsingMock.residents_are_taxed_10cents_for_each_day_they_keep_a_book.executor": "Run",
+    "JUnit.LibraryTestUsingMock.students_pay_10_cents_the_first_30days.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -46,6 +78,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.537931",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -54,7 +90,55 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.LibraryTest">
+    <configuration name="LibraryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="townsville-library" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LibraryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryTestUsingMock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="townsville-library" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LibraryTestUsingMock" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryTestUsingMock.member_can_borrow_a_book_if_book_is_available" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="townsville-library" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LibraryTestUsingMock" />
+      <option name="METHOD_NAME" value="member_can_borrow_a_book_if_book_is_available" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryTestUsingMock.residents_are_taxed_10cents_for_each_day_they_keep_a_book" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="townsville-library" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LibraryTestUsingMock" />
+      <option name="METHOD_NAME" value="residents_are_taxed_10cents_for_each_day_they_keep_a_book" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryTest.whenBookIsBorrowed_thenItIsNoLongerAvailable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="townsville-library" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LibraryTest" />
+      <option name="METHOD_NAME" value="whenBookIsBorrowed_thenItIsNoLongerAvailable" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="recruitment-web" />
       <method v="2">
@@ -68,11 +152,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.LibraryTest" />
+        <item itemvalue="JUnit.LibraryTest.whenBookIsBorrowed_thenItIsNoLongerAvailable" />
+        <item itemvalue="JUnit.LibraryTestUsingMock.member_can_borrow_a_book_if_book_is_available" />
+        <item itemvalue="JUnit.LibraryTestUsingMock.residents_are_taxed_10cents_for_each_day_they_keep_a_book" />
+        <item itemvalue="JUnit.LibraryTestUsingMock" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
         <option value="jdk-11.0.21-corretto-11.0.21-3183f394aec4-585ed96d" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-86fc8109" />
       </set>
     </attachedChunks>
   </component>
@@ -85,7 +179,7 @@
       <option name="presentableId" value="Default" />
       <updated>1702645327898</updated>
       <workItem from="1702645330548" duration="1034000" />
-      <workItem from="1702918469450" duration="871000" />
+      <workItem from="1702918469450" duration="13517000" />
     </task>
     <task id="LOCAL-00001" summary="test implementation">
       <option name="closed" value="true" />
@@ -95,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702919226757</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="some sonar changes">
+      <option name="closed" value="true" />
+      <created>1702919373560</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702919373560</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +205,49 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="test implementation" />
+    <MESSAGE value="some sonar changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some sonar changes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/LibraryTest.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/LibraryTest.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/LibraryTest.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.entretien.repositories.BookRepository" memberName="borrowedBooks" />
+        <PinnedItemInfo parentTag="com.entretien.repositories.BookRepository" memberName="availableBooks" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -1,4 +1,10 @@
-package com.oga;
+package com.entretien.services.impl;
+
+import com.entretien.entities.Book;
+import com.entretien.entities.abstracts.Member;
+import com.entretien.exceptions.HasLateBooksException;
+import com.entretien.repositories.IBookRepository;
+import com.entretien.services.Library;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -14,14 +20,14 @@ import java.util.function.Consumer;
 public class LibraryManagementSystem implements Library {
 
     /** Le référentiel de livres utilisé par le système de gestion de bibliothèque. */
-    private BookRepository bookRepository;
+    private IBookRepository bookRepository;
 
     /**
      * Constructeur de la classe LibraryManagementSystem.
      *
      * @param bookRepository Le référentiel de livres à utiliser par le système.
      */
-    public LibraryManagementSystem(BookRepository bookRepository) {
+    public LibraryManagementSystem(IBookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
