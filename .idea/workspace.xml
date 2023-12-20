@@ -4,25 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07ef68c2-dde1-4e04-86f9-a8777d6a44f8" name="Changes" comment="some sonar changes">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/entretien/repositories/IBookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="07ef68c2-dde1-4e04-86f9-a8777d6a44f8" name="Changes" comment="Test using GWT method">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/entretien/exceptions/BookNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/repositories/impl/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/HasLateBooksException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/exceptions/HasLateBooksException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/ISBN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/ISBN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/services/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/LibraryManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/abstracts/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/NoEnoughFundInTheWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/exceptions/NoEnoughFundInTheWallet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/Profil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/enums/Profil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/ResidentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/ResidentMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oga/StudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/StudentMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LibraryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/entities/ISBN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/ISBN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/entities/ResidentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/ResidentMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/entities/StudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/StudentMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/entities/abstracts/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/abstracts/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/entities/enums/Profil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/entities/enums/Profil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/repositories/IBookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/repositories/IBookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/repositories/impl/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/repositories/impl/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/books.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/books.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -179,7 +175,7 @@
       <option name="presentableId" value="Default" />
       <updated>1702645327898</updated>
       <workItem from="1702645330548" duration="1034000" />
-      <workItem from="1702918469450" duration="13517000" />
+      <workItem from="1702918469450" duration="18582000" />
     </task>
     <task id="LOCAL-00001" summary="test implementation">
       <option name="closed" value="true" />
@@ -197,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702919373560</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Test using GWT method">
+      <option name="closed" value="true" />
+      <created>1703017368541</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703017368541</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,26 +210,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test implementation" />
     <MESSAGE value="some sonar changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some sonar changes" />
+    <MESSAGE value="Test using GWT method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test using GWT method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/entretien/services/impl/LibraryManagementSystem.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/LibraryTest.java</url>
           <line>66</line>

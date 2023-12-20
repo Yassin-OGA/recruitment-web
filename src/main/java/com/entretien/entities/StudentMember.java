@@ -10,8 +10,8 @@ import com.entretien.exceptions.NoEnoughFundInTheWallet;
  * Elle hérite des attributs et méthodes de la classe Member et fournit une implémentation spécifique de la méthode
  * abstraite payBook pour gérer le paiement des livres empruntés par un membre étudiant.
  */
-public class StudentMember extends Member {
 
+public class StudentMember extends Member {
     /**
      * Constructeur de la classe StudentMember.
      *

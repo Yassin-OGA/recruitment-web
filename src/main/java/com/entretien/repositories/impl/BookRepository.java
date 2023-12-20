@@ -4,6 +4,7 @@ package com.entretien.repositories.impl;
 import com.entretien.entities.Book;
 import com.entretien.entities.ISBN;
 import com.entretien.entities.abstracts.Member;
+import com.entretien.exceptions.BookNotFoundException;
 import com.entretien.exceptions.HasLateBooksException;
 import com.entretien.repositories.IBookRepository;
 
@@ -21,13 +22,20 @@ import java.util.stream.Collectors;
  */
 public class BookRepository implements IBookRepository {
     /** Les livres disponibles avec leur ISBN associé. */
-    private Map<ISBN, Book> availableBooks = new HashMap<>();
+    private Map<ISBN, Book> availableBooks;
 
     /** Les livres empruntés avec la date d'emprunt associée. */
-    private Map<Book, LocalDate> borrowedBooks = new HashMap<>();
+    private Map<Book, LocalDate> borrowedBooks;
 
     /** Les emprunteurs associés à chaque livre emprunté. */
-    private Map<Book, Member> borrower = new HashMap<>();
+    private Map<Book, Member> borrower;
+
+
+     public BookRepository(){
+         availableBooks = new HashMap<>();
+         borrowedBooks = new HashMap<>();
+         borrower = new HashMap<>();
+     }
 
     /**
      * Ajoute une liste de livres au référentiel, en s'assurant qu'ils ne sont pas déjà présents.
@@ -35,8 +43,9 @@ public class BookRepository implements IBookRepository {
      * @param books La liste des livres à ajouter.
      */
     public void addBooks(List<Book> books) {
-        books.stream().filter(b -> !availableBooks.containsKey(b.getIsbn()))
-                .forEach(b -> availableBooks.put(b.getIsbn(), b));
+        books.stream()
+                .filter(book -> !availableBooks.containsKey(book.getIsbn()))
+                .forEach(book -> availableBooks.put(book.getIsbn(), book));
     }
 
     /**
@@ -46,15 +55,9 @@ public class BookRepository implements IBookRepository {
      * @return Le livre correspondant au code ISBN, ou null s'il n'est pas trouvé.
      */
     public Book findBook(long isbnCode) {
-        Book book = availableBooks.get(new ISBN(isbnCode));
-        if (book == null)
+        return availableBooks.computeIfAbsent(new ISBN(isbnCode), isbn -> {
             throw new HasLateBooksException();
-        else
-        return book;
-    }
-
-    public Map<ISBN,Book> getAllBooks() {
-       return availableBooks;
+        });
     }
 
     /**
@@ -109,8 +112,9 @@ public class BookRepository implements IBookRepository {
             borrowedBooks.remove(book);
             availableBooks.put(book.getIsbn(), book);
             borrower.remove(book);
-        }else
-            throw new RuntimeException("Book is null");
+        } else {
+            throw new BookNotFoundException();
+        }
     }
 
     /**
@@ -124,4 +128,3 @@ public class BookRepository implements IBookRepository {
                 .collect(Collectors.groupingBy(Map.Entry::getValue, Collectors.mapping(Map.Entry::getKey, Collectors.toList())));
     }
 }
-

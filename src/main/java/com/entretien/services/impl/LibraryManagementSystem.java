@@ -8,19 +8,18 @@ import com.entretien.services.Library;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 /**
  * La classe LibraryManagementSystem implémente l'interface Library et gère les opérations de la bibliothèque,
  * telles que l'emprunt et le retour de livres. Elle utilise un BookRepository pour stocker et récupérer les informations
  * sur les livres disponibles et empruntés.
  */
+
 public class LibraryManagementSystem implements Library {
 
     /** Le référentiel de livres utilisé par le système de gestion de bibliothèque. */
-    private IBookRepository bookRepository;
+    private final IBookRepository bookRepository;
 
     /**
      * Constructeur de la classe LibraryManagementSystem.
@@ -36,16 +35,17 @@ public class LibraryManagementSystem implements Library {
      */
     @Override
     public Book borrowBook(long isbnCode, Member member, LocalDate borrowedAt) {
-        Book book = null;
         if (isLate(member)) {
             throw new HasLateBooksException();
         }
-        book = bookRepository.findBook(isbnCode);
-        Optional<Book> opBook = Optional.ofNullable(book);
-        Consumer<Book> c1= b -> bookRepository.saveBookBorrow(b, borrowedAt);
-        Consumer<Book> c2 = c1.andThen(b-> bookRepository.saveBorrower(b, member));
-        opBook.ifPresent(c2);
-        return book;
+
+        Optional<Book> opBook = Optional.ofNullable(bookRepository.findBook(isbnCode));
+        opBook.ifPresent(book -> {
+            bookRepository.saveBookBorrow(book, borrowedAt);
+            bookRepository.saveBorrower(book, member);
+        });
+
+        return opBook.orElse(null);
     }
 
     /**
@@ -65,15 +65,12 @@ public class LibraryManagementSystem implements Library {
      * @return true si le membre a des livres en retard, false sinon.
      */
     private boolean isLate(Member member) {
-        boolean result = false;
-        List<Book> booksBorrowedByTheMember = bookRepository.booksBorrowedByMember().get(member);
-        if (booksBorrowedByTheMember != null) {
-            int memberMaxPeriod = member.getConfig().getMaxPeriod();
-            result = booksBorrowedByTheMember.stream()
-                    .anyMatch(b -> bookNotReturned(b, memberMaxPeriod));
-        }
-        return result;
+        return Optional.ofNullable(bookRepository.booksBorrowedByMember().get(member))
+                .map(books -> books.stream()
+                        .anyMatch(b -> bookNotReturned(b, member.getConfig().getMaxPeriod())))
+                .orElse(false);
     }
+
 
     /**
      * Vérifie si un livre n'a pas été retourné dans la période spécifiée.
@@ -83,9 +80,9 @@ public class LibraryManagementSystem implements Library {
      * @return true si le livre n'a pas été retourné dans la période spécifiée, false sinon.
      */
     private boolean bookNotReturned(Book book, int maxPeriod) {
-        int daysBorrowed = daysBorrowed(book);
-        return daysBorrowed > maxPeriod;
+        return daysBorrowed(book) > maxPeriod;
     }
+
 
     /**
      * Calcule le nombre de jours pendant lesquels un livre a été emprunté.
@@ -94,9 +91,8 @@ public class LibraryManagementSystem implements Library {
      * @return Le nombre de jours d'emprunt du livre.
      */
     private int daysBorrowed(Book book) {
-        LocalDate now = LocalDate.now();
-        LocalDate borrowedAt = bookRepository.findBorrowedBookDate(book);
-        return (int) borrowedAt.until(now, ChronoUnit.DAYS);
+        return (int) bookRepository.findBorrowedBookDate(book).until(LocalDate.now(), ChronoUnit.DAYS);
     }
+
 }
 

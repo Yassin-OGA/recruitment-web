@@ -1,7 +1,6 @@
 package com.entretien.repositories;
 
 import com.entretien.entities.Book;
-import com.entretien.entities.ISBN;
 import com.entretien.entities.abstracts.Member;
 
 import java.time.LocalDate;
@@ -19,7 +18,6 @@ public interface IBookRepository {
      */
      Book findBook(long isbnCode);
 
-     Map<ISBN,Book> getAllBooks();
 
     /**
      * Recherche l'emprunteur d'un livre donné.
@@ -27,7 +25,7 @@ public interface IBookRepository {
      * @param book Le livre dont on recherche l'emprunteur.
      * @return Le membre qui a emprunté le livre, ou null s'il n'a pas été emprunté.
      */
-    public Member findBorrower(Book book);
+    Member findBorrower(Book book);
 
     /**
      * Enregistre les détails d'emprunt d'un livre, en le retirant de la liste des livres disponibles
@@ -36,7 +34,7 @@ public interface IBookRepository {
      * @param book Le livre emprunté.
      * @param borrowedAt La date à laquelle le livre a été emprunté.
      */
-    public void saveBookBorrow(Book book, LocalDate borrowedAt);
+    void saveBookBorrow(Book book, LocalDate borrowedAt);
 
     /**
      * Enregistre l'emprunteur d'un livre donné.

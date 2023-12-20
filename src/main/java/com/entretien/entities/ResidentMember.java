@@ -11,6 +11,10 @@ import com.entretien.exceptions.NoEnoughFundInTheWallet;
  * abstraite payBook pour gérer le paiement des livres empruntés par un membre résident.
  */
 public class ResidentMember extends Member {
+    public ResidentMember(String id, String firstName, String lastName, float wallet, Profil config) {
+        super(id, firstName, lastName, wallet, config);
+    }
+
 
     /**
      * Constructeur de la classe ResidentMember.
@@ -21,9 +25,6 @@ public class ResidentMember extends Member {
      * @param wallet Le montant d'argent dans le portefeuille du membre résident.
      * @param config La configuration de profil du membre résident.
      */
-    public ResidentMember(String id, String firstName, String lastName, float wallet, Profil config) {
-        super(id, firstName, lastName, wallet, config);
-    }
 
     /**
      * {@inheritDoc}
